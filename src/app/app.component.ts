@@ -41,10 +41,10 @@ constructor(
 
   switchLanguageFromDBMockData(lngId : string){
      if(lngId == "en-US")
-        this.nameVal = "Catering Admin(This is a Dynamically change role)"
+        this.nameVal = "Catering Admin(This is a dynamically changed role)"
      else if(lngId == "fr-CA")
-        this.nameVal = "Administrateur de la restauration(This is a Dynamically change role)"
+        this.nameVal = "Administrateur de la restauration(This is a dynamically changed role)"
      else if(lngId == "si-LK")
-        this.nameVal = "කේටරින් පරිපාලක(This is a Dynamically change role)"
+        this.nameVal = "කේටරින් පරිපාලක(This is a dynamically changed role)"
   }
 }
