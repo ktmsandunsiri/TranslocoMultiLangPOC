@@ -1,0 +1,11 @@
+{
+    "title" : "ඉල්ලීම්",
+    "activationRequests" : "ක්‍රියාත්මක කිරීමේ ඉල්ලීම",
+    "effectiveDate" : "බලාත්මක දිනය",
+    "Approved by" : "අනුමත කිරීම:",
+    "Approved Date" : "අනුමත දිනය:",
+    "ACTIVATION" : "ක්‍රියාකාරීත්වය",
+    "APPROVED" : "අනුමත කර ඇත",
+    "PRICE POINT" : "මිල පොයින්ට්",
+    "SayHello" : "ආයුබෝවන් {{ name }}"
+}

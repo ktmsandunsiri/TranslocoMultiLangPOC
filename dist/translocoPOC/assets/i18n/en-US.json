@@ -1,0 +1,11 @@
+{
+    "title" : "Pending Requests",
+    "activationRequests" : "Activation Request",
+    "effectiveDate" : "Effective Date",
+    "Approved by" : "Approved by",
+    "Approved Date" : "Approved Date :",
+    "ACTIVATION" : "ACTIVATION",
+    "APPROVED" : "APPROVED",
+    "PRICE POINT" : "PRICE POINT",
+    "SayHello" : "Hello {{ name }}"
+}

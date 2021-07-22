@@ -1,0 +1,65 @@
+/* Color Variable */
+$brand-color:#5ECCC8;
+$main-hover-color:#A2D6CD;
+$brand-secondary-color:#4B3E34;
+$white-color:#FFFFFF;
+$black-color:#000000;
+$yellow-color:#FFC400; 
+$light-yellow-color:#FFC480;
+$green-color:#AAB987;
+$red-color:#E86B6B;
+$blue-color:#95AFC4;
+$heading-color:#1F1F1F;
+$success-color:#00C853;
+$text-color:#777777;
+$border-color:#DDDDDD;
+$bg-color:#EFECDF;
+$placeholder-color:#BFBFBF;
+$dropdown-color:#464747;
+$table-bg:#eeeeee;
+$light-black:rgba(0,0,0,0.16);
+$toolbar-color:#fafafa;
+
+//toaster massages
+$border-radius:50%;
+$w80:80%;
+
+/* Font Family Variable */
+$font-family:'Montserrat', sans-serif;
+$icon-family:'Nucleo';
+
+/* Font Size Variable */
+$xxxl-text:160px;
+$header-text:40px;
+$xxl-text:22px;
+$xl-text:18px;
+$lg-text:16px;
+$md-text:14px;
+$sm-text:12px;
+$xs-text:10px;
+$xxs-text:8px;
+
+/* Font Weight */
+$normal:400;
+$bold:600;
+$bolder:700; 
+$lighter:500;
+
+/* Media Query Variable */
+$xl-mobile:"(max-width:1280px)";
+$lg-mobile:"(max-width:1024px)";
+$md-mobile:"(max-width:768px)";
+$sm-mobile:"(max-width:576px)";
+$xs-mobile:"(max-width:375px)";
+$xl-tablet:"(max-width:481px)";
+$lg-tablet:"(min-width:767px)";
+$md-tablet:"(max-width:991px)";
+$sm-tablet:"(min-width:1025px)";
+$xs-tablet:"(max-width:991px)";
+$xl-desktop:"(min-width:2560px)";
+$lg-desktop:"(min-width:1440px)";
+$md-desktop:"(min-width:1921px)";
+$sm-desktop:"(min-width:1365px)";
+$xs-destop:"(min-width:992px)";
+
+

@@ -1,0 +1,283 @@
+@import 'variable.scss';
+
+// Button Color Mixin 
+@mixin button-color($btn-bg,$btn-txt,$btn-border,$btn-hover-bg,$btn-hover-txt,$btn-hover-border) {
+    background-color: $btn-bg;
+    color: $btn-txt;
+    border-color:$btn-border;
+    &:hover {
+        background-color:$btn-hover-bg;
+        color: $btn-hover-txt;
+        border-color: $btn-hover-border;
+    }
+}
+
+// Button Text Mixin
+@mixin button-text($btn-family,$btn-size,$btn-weight,$btn-margin,$btn-padding,$btn-height) {
+    font-family: $btn-family;
+    font-size:$btn-size;
+    font-weight: $btn-weight;
+    margin: $btn-margin;
+    padding: $btn-padding;
+    line-height: $btn-height;
+}
+
+// Text Mixin 
+@mixin text($txt-family,$txt-size,$txt-color,$txt-margin,$txt-height,$txt-weight)
+ {
+    font-family: $txt-family;
+    font-size:$txt-size;
+    color:$txt-color;
+    margin:$txt-margin;
+    line-height:$txt-height;
+    font-weight:$txt-weight;
+    // text-transform:$txt-transform;
+}
+
+// Padding Mixin 
+@mixin padding($padding-top, $padding-right, $padding-bottom, $padding-left) {
+    padding-top: $padding-top;
+    padding-right: $padding-right;
+    padding-bottom: $padding-bottom;
+    padding-left: $padding-left;
+}
+ 
+// Marign Mixin 
+@mixin margin($margin-top, $margin-right, $margin-bottom, $margin-left) {
+    margin-top: $margin-top;
+    margin-right: $margin-right;
+    margin-bottom: $margin-bottom;
+    margin-left: $margin-left;
+}
+
+// Border Mixin 
+@mixin border($border-direction, $border-width, $border-style, $border-color) {
+    border-#{$border-direction}: $border-width $border-style $border-color;
+}
+
+@mixin border-corner-radius($position1,$position2,$position3,$position4,$bcr1,$bcr2) {
+    border-#{$position1}-#{$position2}-radius: $bcr1;
+    border-#{$position3}-#{$position4}-radius: $bcr2;
+}
+// Spacing Mixin
+@mixin spacing($margin,$padding,$border) {
+    margin: $margin;
+    padding: $padding;
+    border: $border;
+}
+
+// Border Radius Mixin 
+@mixin border-radius($size) {
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+    -o-border-radius: $size;
+    border-radius: $size;
+}
+
+@mixin common-content() {
+    background-color: $bg-color;
+    padding: 20px;
+}
+
+// Position Mixin 
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+// Link Mixin 
+@mixin link($link, $visit, $hover, $active) {
+    a {
+      color: $link;
+      &:visited {
+        color: $visit;
+      }
+      &:hover {
+        color: $hover;   
+      }
+      &:active {
+        color: $active;
+      }
+    }
+}
+
+// PlaceHolder Mixin
+@mixin input-placeholder($ph-family,$ph-size,$ph-color,$ph-height,$ph-weight) {
+    &.placeholder { 
+        color:$ph-color; 
+        font-family: $ph-family;
+        font-size: $ph-size;
+        line-height: $ph-height;
+        font-weight: $ph-weight;
+    }
+    &:-moz-placeholder { 
+        color:$ph-color; 
+        font-family: $ph-family;
+        font-size: $ph-size;
+        line-height: $ph-height;
+        font-weight: $ph-weight;
+    }
+    &::-moz-placeholder { 
+        color:$ph-color;
+        font-family: $ph-family;
+        font-size: $ph-size;
+        line-height: $ph-height;
+        font-weight: $ph-weight; 
+    }
+    &:-ms-input-placeholder { 
+        color:$ph-color;
+        font-family: $ph-family;
+        font-size: $ph-size;
+        line-height: $ph-height;
+        font-weight: $ph-weight; 
+    }
+    &:-o-input-placeholder {
+        color:$ph-color;
+        font-family: $ph-family;
+        font-size: $ph-size;
+        line-height: $ph-height;
+        font-weight: $ph-weight;
+    }
+    &::-webkit-input-placeholder { 
+        color:$ph-color; 
+        font-family: $ph-family;
+        font-size: $ph-size;
+        line-height: $ph-height;
+        font-weight: $ph-weight;
+    }
+}
+
+
+// Transform Mixin 
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+// Rotate Mixin 
+@mixin rotate($deg) {
+    @include transform(rotate(#{$deg}deg));
+}
+// Box Shadow Mixin 
+@mixin box-shadow($bs-offset-x,$bs-offset-y,$bs-blur-radius,$bs-spread-radius,$bs-color) {
+    box-shadow: $bs-offset-x $bs-offset-y $bs-blur-radius $bs-spread-radius $bs-color;
+    -webkit-box-shadow: $bs-offset-x $bs-offset-y $bs-blur-radius $bs-spread-radius $bs-color;
+    -moz-box-shadow: $bs-offset-x $bs-offset-y $bs-blur-radius $bs-spread-radius $bs-color;
+}
+
+// Color 
+@mixin  spacing-color($sc-bg-color,$sc-color,$sc-border-color) {
+    background-color: $sc-bg-color;
+    color:$sc-color;
+    border:$sc-border-color;
+}
+
+// Display Flex 
+@mixin  flex($fdisplay:null,$fjc:null,$fai:null,$ffd:null) {
+    display: $fdisplay;
+    justify-content: $fjc;
+    align-items: $fai;
+    flex-direction: $ffd;
+}
+
+// Pagination Style 
+@mixin  pagination($paginmargin,$pagincontent,$paginfamily,$paginsize,$paginheight,$paginalign,$pagincolor) {
+    margin: $paginmargin !important;
+    content: $pagincontent;
+    font-family: $paginfamily;
+    font-size: $paginsize;
+    line-height: $paginheight;
+    text-align: $paginalign;
+    color: $pagincolor;
+}
+
+@mixin animation-delay($delay) {
+    -webkit-animation-delay: $delay;
+    -moz-animation-delay: $delay;
+    -o-animation-delay: $delay;
+    animation-delay: $delay;
+}
+
+@mixin animation-fill($mode) {
+    -webkit-animation-fill-mode: $mode;
+    -moz-animation-fill-mode: $mode; 
+    -o-animation-fill-mode: $mode; 
+    animation-fill-mode: $mode; 
+}
+
+@mixin animation($animation) {
+    -webkit-animation: $animation;
+    animation: $animation;
+}
+
+@mixin  size($s-width,$s-height,$s-line-height) {
+    width: $s-width;
+    height: $s-height;
+    line-height: $s-line-height;
+}
+
+@mixin status-color {
+    &.status-new { color: $blue-color; }
+    &.status-pending { color: $light-yellow-color; }
+    &.status-active { color: $green-color; }
+    &.status-rejected { color: $red-color; }
+    &.status-inactive { color: $placeholder-color; }
+}
+
+@mixin  status-bg {
+    &.menus-new { background-color: $blue-color; }
+    &.menus-pending { background-color: $light-yellow-color; }
+    &.menus-active { background-color: $green-color; }
+    &.menus-rejected { background-color: $red-color; }
+    &.menus-inactive { background-color: $placeholder-color; }
+}
+@mixin  transition($transition) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+@mixin  selection() {
+    ::selection { background-color: $brand-color; }
+    ::-moz-selection { background: $brand-color; }
+}
+
+@mixin overflow($overflow-x,$overflow-y,$min-height,$max-height,$height) {
+    overflow-x: $overflow-x;
+    overflow-y: $overflow-y;
+    min-height: $min-height;
+    max-height: $max-height;
+    height: $height;
+}
+
+@mixin  text-overflow($to-width,$to-maxwidth,$to-textoverflow,$to-whitespace,$to-overflow) {
+    width:$to-width;
+    max-width:$to-maxwidth;
+    text-overflow: $to-textoverflow;
+    white-space: $to-whitespace;
+    overflow: $to-overflow;
+}
+@mixin  user-select($user-select) {
+    -webkit-user-select: $user-select;
+    -moz-user-select: $user-select;
+    -ms-user-select: $user-select;
+    user-select: $user-select;
+}
+
+@mixin  width($w-width,$w-minwidth,$w-maxwidth) {
+    width: $w-width;
+    min-width: $w-minwidth;
+    max-width: $w-maxwidth;
+}
+
+@mixin  height($h-height,$h-minheight,$h-maxheight,$h-lineheight) {
+    height: $h-height;
+    min-height: $h-minheight;
+    max-height: $h-maxheight;
+    line-height: $h-lineheight;
+}

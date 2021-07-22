@@ -1,0 +1,113 @@
+<div class="lang-btns">
+  <button
+    *ngFor="let lang of availableLangs"
+    [attr.data-cy]="lang.id"
+    class="btn my-2 my-sm-0"
+    style="margin-right: 10px;"
+    (click)="setActiveLanguage(lang?.id)"
+    [ngClass]="{ 'btn-primary': activeLang === lang?.id, 'btn-secondary': activeLang !== lang?.id }"
+  >
+    {{ lang.label }}
+  </button>
+  <h5 style="text-align: right;">{{'SayHello' | transloco : {name: nameVal} }}</h5> 
+
+<div class="dashboard-section dashboard-pr-section">
+  <div class="header-section">
+    <div class="header-content">
+      <h1 class="title" >{{'title' | transloco }}</h1>
+      <!-- <h1 class="title" transloco="title"></h1> -->
+      <div class="title-item btn-group custom-radiobutton mr-3">
+        <!-- <label class="btn" [(ngModel)]="radioModel" value="0" btnRadio="All" tabindex="0" role="button">All</label>
+        <label class="btn" [(ngModel)]="radioModel" value="1"  btnRadio="Activation" tabindex="0" role="button">Activation</label>
+        <label class="btn" [(ngModel)]="radioModel" value="2" btnRadio="Deactivation" tabindex="0" role="button">Deactivation</label>
+        <label class="btn" [(ngModel)]="radioModel" value="3"  btnRadio="PricePoints" tabindex="0" role="button">Price Points</label> -->
+      </div>
+    </div>
+  </div>
+  <div class="common-section">
+    <div class="dashboard-card status-activation">
+      <div class="col-lg-6">
+        <div class="col-lg-12">
+          <div class="card-details">
+            <p transloco="activationRequests"></p>
+            <h4>Woodlands Fall 1.0</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="col-lg-4">
+          <div class="card-date">
+            <p transloco="effectiveDate">Effective Date:</p>
+            <h5>{{datVal1 | translocoDate: { dateStyle: 'medium'} }}</h5>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card-approved">
+            <h4 transloco="Approved by">Approved by</h4>
+            <h5>Maria Gomez</h5>
+            <p><ng-container transloco="Approved Date">Approved Date:</ng-container> {{datVal1 | translocoDate: { dateStyle: 'medium'} }}</p>
+          </div>
+        </div> 
+        <div class="col-lg-4 card-label">
+          <label transloco="ACTIVATION">ACTIVATION</label>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-card status-deactivation">
+      <div class="col-lg-6">
+        <div class="col-lg-12">
+          <div class="card-details">
+            <p>{{'activationRequests'| transloco }}</p>
+            <h4>Woodlands Fall 1.0</h4>
+           </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="col-lg-4">
+          <div class="card-date">
+            <p transloco="effectiveDate">Effective Date:</p>
+            <h5>{{datVal1 | translocoDate: { dateStyle: 'medium'} }}</h5>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card-approved">
+            <h4 transloco="Approved by">Approved by</h4>
+            <h5>Maria Gomez</h5>
+            <p>{{'Approved Date' | transloco}} : {{datVal1 | translocoDate: { dateStyle: 'medium'} }}</p>
+          </div>
+        </div>
+        <div class="col-lg-4 card-label">
+          <label transloco="APPROVED">APPROVED</label>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-card status-pricepoint" *transloco="let t">
+      <div class="col-lg-6">
+        <div class="col-lg-12">
+          <div class="card-details">
+            <p> {{t('activationRequests')}}</p>
+            <h4>Woodlands Fall 1.0</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="col-lg-4">
+          <div class="card-date">
+            <p> {{t('effectiveDate')}} :</p>
+            <h5>{{datVal1 | translocoDate: { dateStyle: 'medium'} }}</h5>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card-approved">
+            <h4 transloco="Approved by">Approved by</h4>
+            <h5>Maria Gomez</h5>
+            <p>{{t('Approved Date')}} : {{datVal1 | translocoDate: { dateStyle: 'medium'} }}</p>
+          </div>
+        </div>
+        <div class="col-lg-4 card-label">
+          <label>{{t('PRICE POINT')}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

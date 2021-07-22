@@ -1,0 +1,1518 @@
+@import 'style.scss';
+@import 'font-awesome.css';
+@import 'responsive.scss';
+
+
+/* Common Style */
+::ng-deep html { 
+    @include size(100%,100%,null);
+}
+
+::ng-deep body { 
+    @include spacing(0px,0px,0px);
+    @include size(100%,100%,null);
+    font-family: $font-family;
+    background-attachment: fixed; 
+    &.loading { 
+        @include overflow(hidden,hidden,null,null,null);
+    }
+}
+
+.no-pointer-event { 
+    pointer-events: none !important; 
+}
+
+.price-point-hidden-icon{
+    width: 12px;
+    // margin-left: 10px;
+}
+
+@include selection();
+.error-text {
+    @include text($font-family,$xs-text,$red-color,4px 0px 0px 0px,10px,$lighter);
+    display: block;
+}
+
+.datetime-search {
+    height: auto !important;
+}
+
+/* Theme Section */
+.content-wrapper {
+    // @include transition(all .5s cubic-bezier(.685,.0473,.346,1));
+    @include transition(all 0.5s ease 0s);
+    background-color: $bg-color;
+    position: relative;
+    width: calc(100% - 200px);
+    float: right;
+    .main-content {
+        @include spacing(56px 0px 0px 0px,30px 10px 15px 10px,null);
+        min-height: calc(100vh - 56px);
+        .common-section { padding: 20px; }
+    }
+}
+
+.common-section { padding: 20px; }
+/* Header Section */
+.header-section {
+    padding: 0px 20px;
+    .header-content {
+        @include flex(flex,flex-start,center);
+        .title {
+            @include text($font-family,$header-text,$heading-color,0px,44px,$bold);
+        }
+        .title-content {
+            @include flex(flex,flex-end,null);
+            margin-left: auto;
+        }
+        .title-item {
+            height: 38px !important;
+        }
+        .custom-search {
+            width: 25%;
+        }
+        .custom-radiobutton {
+            float: right;
+            margin-left: auto;
+        }
+        select { height: 40px !important; }
+        .btn {
+            box-shadow: none !important;
+            &.green-btn {
+                @include border-radius(6px);
+                width: 170px;
+                font-size: 14px !important;
+                padding: 6px 24px;
+                box-shadow: none !important;
+                border: none !important;
+                i {
+                    // margin-right: 10px !important;
+                    line-height: 16px;
+                }
+            }
+        }
+    }
+}
+
+/* Form Style */
+button { 
+    margin-bottom: 0px !important;
+    &:focus { 
+        outline: 0px !important;
+        box-shadow: none !important; 
+    } 
+}
+
+::ng-deep .form-control { 
+    &:focus { 
+        box-shadow: none !important; 
+        border-color: $border-color !important; 
+    } 
+}
+
+[class*=col-] { 
+    display: inline-block !important; 
+}
+
+::ng-deep:focus { 
+    outline: none; 
+}
+
+.btn { 
+    &:focus { 
+        box-shadow: none !important; 
+    } 
+}
+
+.form-group {
+    &.has-error {
+        .form-control {
+           border-color: $red-color !important;
+        }
+        .input-group-text {
+            border-color: $red-color !important;
+        }
+        .validate-text {
+            color: $red-color !important;
+        }
+        .dropdown-input {
+            button {
+                border:1px solid $red-color !important;
+            }
+            input {
+                border: 1px solid $red-color !important;
+            }
+        }
+        .menu-cat-list {
+            border: 1px solid $red-color !important;
+        }
+        .ngx-editor {
+            border: 1px solid $red-color !important;
+        }
+        .e-richtexteditor {
+            border: 1px solid $red-color !important;
+        }
+    }
+    &.has-valid {
+        .form-control {
+           border-color: $success-color !important;
+        }
+        .input-group-text {
+            border-color: $success-color !important;
+        }
+        .validate-text {
+            color: $success-color  !important;
+        }
+        .dropdown-input {
+            button {
+                border:1px solid $success-color !important;
+            }
+            input {
+                border: 1px solid $success-color !important;
+            }
+        }
+        .menu-cat-list {
+            border:1px solid $success-color !important;
+        }
+        .ngx-editor {
+            border:1px solid $success-color !important;
+        }
+        .e-richtexteditor {
+            border:1px solid $success-color !important;
+        }
+    }
+    .form-control {
+        &.disabled {
+            background-color: $border-color;
+            opacity: 1;
+            cursor: default;
+            pointer-events: none;
+        }
+    }
+}
+
+.datetime-search {
+    height: auto !important;
+}
+/* Navigation Section */
+::ng-deep .sidebar-mini {
+    .content-wrapper {
+       width:calc(100% - 80px) !important;
+    //    z-index: -1;
+    }
+    .sidebar {
+        width:80px !important;
+        .sidebar-wrapper {
+            width: auto !important;
+        }
+        .side-bar-list {
+            width: auto;
+            li {
+                i {
+                    margin-right: -67px !important;
+                    margin-left: 10px !important;
+                    @include transition(all .5s ease 0s);
+                }
+                a {
+                    span {
+                        opacity: 0; 
+                        @include transition(all .5s ease 0s);
+                    }
+                }
+                &:hover {
+                    .tooltips {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    .tooltips {
+		display: inline-block !important;
+		position: fixed;
+        background-color: $brand-color;
+        color: $white-color;
+		padding: 8px 15px;
+		border-radius: 3px;
+		margin-top: -45px;
+		left: 90px;
+		opacity: 0;
+		visibility: hidden;
+		font-size: 13px;
+		letter-spacing: .5px;
+		z-index: 999999;
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				left: -4px;
+				top: 10px;
+				transform: rotate(45deg);
+				width: 10px;
+				height: 10px;
+				background-color: inherit;
+			}
+	}
+}
+
+::ng-deep .sidebar-mini {
+    .sidebar-wrapper{
+        width: auto !important;
+        .side-bar-list {
+            width: auto !important;
+        }
+    }
+}
+
+/* Error and Auth Page  */
+.page-404-section {
+    background-color: $bg-color;
+    height: 100%;
+    text-align: center;
+    .error-content {
+        @include flex(flex,center,center,column);
+        height: 100%;
+        h1 {
+            @include text($font-family,$xxxl-text,$brand-secondary-color,0px,177px,$bold);
+        }
+        h4 {
+           @include text($font-family,30px,$placeholder-color,0px 0px 20px 0px,32px,$lighter);
+        }
+        button {
+            @include text($font-family,$lg-text,$white-color,0px,18px,$bold);
+            @include button-color($brand-color,$white-color,$brand-color,transparent,$brand-color,$brand-color);
+            @include box-shadow(4px,1px,4px,2px,$light-black);
+        }
+    }
+}
+
+.auth-section {
+    background-color: $bg-color;
+    height: 100%;
+    text-align: center;
+    .auth-content {
+        @include flex(flex,center,center,column);
+        height: 100%;
+        h1 {
+            @include text($font-family,36px,$brand-secondary-color,0px,1.8,$bold);
+        }
+        p {
+            @include text($font-family,24px,$placeholder-color,0px,18px,$bold);
+        }
+    }
+    .loading {
+        line-height: 18px;
+        div {
+            @include size(16px,16px,null);
+            @include border-radius(100%);
+            @include animation(cat-bouncedelay 1.7s infinite ease-in-out both);
+            background-color: $brand-color;
+            display: inline-block;
+            margin-right: 5px;
+        }
+    }
+    .spinner:nth-child(0) { @include animation-delay(-0.6s); }
+    .spinner:nth-child(1) { @include animation-delay(-0.4s); }
+    .spinner:nth-child(2) { @include animation-delay(-0.2s); }
+    @-webkit-keyframes cat-bouncedelay {
+        0%,
+        80%,
+        100% {
+            @include transform(scale(0));
+            opacity: 0;
+        }
+        40% {
+            @include transform(scale(1));
+            opacity: 1;
+        }
+    }
+    @keyframes cat-bouncedelay {
+        0%,
+        80%,
+        100% {
+            @include transform(scale(0));
+            opacity: 0;
+        }
+        40% {
+            @include transform(scale(1));
+            opacity: 1;
+        }
+    }
+}
+
+/* Custom Pagination  */
+::ng-deep .pagination-section {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    .pagenumber-content {
+        h6 {
+            @include text($font-family,$md-text,$text-color,0px,18px,$lighter);
+            span {
+                @include text($font-family,$md-text,$text-color,0px 0px 5px 0px,15px,$bold);
+            }
+        }
+    }
+    .pagination-content {
+        text-align: center;
+        @include position(absolute,null,0px,null,0px);
+        .custom-pagination {
+            .ngx-pagination {
+                li {
+                    margin-right: 0.925rem !important;
+                    &:first-child {
+                        margin-right: 1.025rem !important;
+                    }
+                    &:nth-last-child(2) {
+                        margin-right: 1.025rem !important;
+                    }
+                }
+                a {
+                    @include size(32px,32px,32px);
+                    padding: 0px !important;
+                    &:hover {
+                        @include border-radius(100%);
+                        background-color: $border-color;
+                        text-decoration: none;
+                    }
+                }
+                li {
+                    @include border-radius(100%);
+                    @include box-shadow(0px,1px,4px,1px,$light-black);
+                    background-color: $border-color;
+                    margin-right: 0.625rem;
+                    padding: 0px !important;
+                    a {
+                        span {
+                            @include text($font-family,$md-text,$text-color,0px,15px,$bold);
+                        }
+                    }
+                }
+                .current {
+                    @include border-radius(100%);
+                    @include box-shadow(0px,1px,4px,1px,$light-black);
+                    @include size(32px,32px,32px);
+                    background-color: $brand-color;
+                    span {
+                        @include text($font-family,$md-text,$white-color,0px,15px,$bold);
+                    }
+                    a {
+                        span {
+                            @include text($font-family,$md-text,$white-color,0px,15px,$bold);
+                        }
+                    }
+                }
+                .pagination-previous  {
+                    @include size(32px,32px,32px);
+                    &.disabled {
+                        &::before {
+                            @include pagination(0px,"\ea3d",$icon-family,$md-text,15px,center, $text-color);
+                            vertical-align: middle;
+                        }
+                    }
+                    a {
+                        &::before {
+                            @include pagination(0px,"\ea3d",$icon-family,$md-text,15px,center, $text-color);
+                            vertical-align: middle;
+                        }
+                    }
+                }
+                .pagination-next {
+                    @include size(32px,32px,32px);
+                    &.disabled {
+                        &::after {
+                            @include pagination(0px,"\ea45",$icon-family,$md-text,15px,center, $text-color);
+                            vertical-align: middle;
+                        }
+                    }
+                    a {
+                        &::after {
+                            @include pagination(0px,"\ea45",$icon-family,$md-text,15px,center, $text-color);
+                            vertical-align: middle;
+                        }  
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Custom Table */
+.custom-table {
+    .table {
+        @include border-radius(6px);
+        margin-bottom: 0px;
+        thead { 
+            th {
+                &:first-child { border-top-left-radius: 6px; }
+                &:last-child { border-top-right-radius: 6px; }
+                @include text($font-family,15px,$text-color,0px,18px,$bold);
+                @include border(bottom,1px,solid,$border-color);
+                background-color: $white-color;
+                border-top:0px;
+                padding: 12px;
+                vertical-align: middle;
+            } 
+        } 
+        tbody {
+            tr {
+                td {
+                    @include border(top,1px,solid,$border-color);
+                    @include text($font-family,$sm-text,$text-color,0px,18px,$normal);
+                    background-color: $white-color;
+                    padding: 6px 12px;
+                    vertical-align: middle;
+                    height: 40px;
+                }
+            }
+            tr {
+                &:last-child {
+                    td {
+                        &:first-child { border-bottom-left-radius: 6px; }
+                        &:last-child { border-bottom-right-radius: 6px; }
+                    }
+                }
+            }
+        }
+    } 
+    &.no-data-table {
+        @include box-shadow(0px,0px,1px,0px,rgba(0,0,0,0.20));
+        @include border-radius(6px);
+        background-color: $table-bg;
+        position: relative;
+        min-height: 400px;
+        .no-data-content {
+            @include position(absolute,0px,0px,0px,0px);
+            @include flex(flex,center,center);
+            h4 {
+                @include text($font-family,$xxl-text,$placeholder-color,0px,24px,$lighter);
+            }
+        }
+        thead {
+            th {
+                background: $table-bg;
+                border-bottom: 1px solid $border-color;
+            }
+        }
+     
+    }
+}
+
+/* Custom Button */
+.green-btn {
+    @include button-color($brand-color !important,$white-color !important,$brand-color !important,$brand-color !important,$white-color,$brand-color);
+    @include button-text($font-family,$md-text !important,600 !important,0px,6px 12px !important,18px);
+    @include box-shadow(0px,1px,4px,1px,$light-black);
+    @include border-radius(6px);
+    border: 2px solid $brand-color !important;
+    i {
+        margin-right: 10px;
+        vertical-align: inherit;
+    }
+}
+
+.white-btn {
+    @include button-color($bg-color !important,$brand-secondary-color !important,$bg-color !important,$bg-color,$white-color,$bg-color);
+    @include button-text($font-family,$md-text !important,600 !important,0px,6px 12px,18px);
+    @include box-shadow(0px,1px,4px,1px,$light-black);
+    @include border-radius(6px);
+    border: 2px solid $brand-secondary-color !important;
+}
+
+.black-btn {
+    @include button-color($text-color !important,$white-color !important,$text-color !important,$text-color,$white-color,$text-color);
+    @include button-text($font-family,$md-text !important,600 !important,0px,6px 12px,18px);
+    @include box-shadow(0px,1px,4px,1px,$light-black);
+    @include border-radius(6px);
+    border: 2px solid $text-color !important;
+}
+
+.red-btn {
+    @include button-color($red-color !important,$white-color !important,$red-color !important,$red-color,$white-color,$red-color);
+    @include button-text($font-family,$md-text !important,600,0px,6px 12px !important,18px);
+    @include box-shadow(0px,1px,4px,1px,$light-black);
+    @include border-radius(6px);
+    border: 1px solid $red-color;
+} 
+
+.red-icon-btn {
+    @include button-color($red-color,$white-color,$red-color,$red-color,$white-color,$red-color);
+    @include button-text(initial,$lg-text,600,0px 5px 0px 0px,3px 6px,18px);
+    @include border-radius(100%);
+    border: 1px solid $red-color !important;
+    // border-radius: 100%;
+    i {
+        font-size: $sm-text;
+    }
+}
+
+.white-icon-btn {
+    @include button-color(transparent,$dropdown-color,transparent !important,transparent,$dropdown-color,transparent);
+    @include button-text(initial,$lg-text,600,0px 5px 0px 0px,3px 6px,18px);
+    @include border-radius(100%);
+    border: 0px !important;
+    // border-radius: 100%;
+    i {
+        font-size: $sm-text;
+    }
+}
+
+.green-icon-btn {
+    @include button-color($brand-color !important,$white-color !important,$brand-color,$brand-color !important,$white-color !important,$brand-color);
+    @include button-text(initial,$lg-text,600,0px 20px 0px 0px,3px 6px,18px);
+    @include border-radius(100%);
+    border: 1px solid $brand-color !important;
+    // border-radius: 100%;
+    i {
+        font-size: $sm-text;
+    }
+}
+
+.black-icon-btn {
+    padding: 10px 4px 0px 4px;
+    i {
+        @include text($icon-family,28px,$brand-secondary-color,0px,inherit,$lighter);
+    }
+}
+
+
+/* Custom RadioButton */
+.custom-radiobutton {
+    label {
+        &.active {
+            @include text($font-family,$sm-text,$white-color,0px,28px,$bold);
+            // @include border-radius(6px);
+            @include spacing(null,6px 12px,1px solid $border-color);
+            background-color: $brand-color;
+            cursor: pointer;
+            &:hover { color: $white-color;}
+        }
+        @include text($font-family,$sm-text,$dropdown-color,0px,28px,$bold);
+        // @include border-radius(6px);
+        @include spacing(null,6px 12px,1px solid $border-color);
+        background-color: $white-color;
+        cursor: pointer;
+        width: 74px;
+        &:hover { color: $dropdown-color; }
+    }
+}
+
+/* Custom Radio */
+.custom-radio {
+    @include text($font-family,$md-text,$text-color,0px,15px,$lighter);
+    @include user-select(none);
+    @include spacing(0px 0px 12px 0px !important,0px 0px 0px 25px,null);
+    display: block;
+    position: relative;
+    cursor: pointer;
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        display: none;
+        &:checked {
+            ~ {
+                .checkmark {
+                    &:after {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .checkmark {
+        @include position(absolute,0px,null,null,0px);
+        @include size(16px,16px,null);
+        @include border-radius(100%);
+        background-color: $white-color;
+        border-color: $border-color;
+        &:after {
+            @include size(8px,8px,null);
+            @include position(absolute,4px,null,null,4px);
+            @include border-radius(100%);
+            background: $white-color;
+        }
+    }
+    &:hover {
+        input {
+            ~ {
+                .checkmark {
+                    background-color: $white-color;
+                    border-color: $border-color;
+                }
+            }
+        }
+    }
+    input {
+        &:checked {
+            ~ {
+                .checkmark {
+                    @include border-radius(100%);
+                    background-color: $brand-color;
+                }
+            }
+        }
+    }
+}
+
+.checkmark {
+    &:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+}
+
+/* Custom Checkbox */
+.custom-checkbox {
+    input {
+        display:none; 
+    }
+    label {
+        .check-icon {
+            @include size(16px,16px,16px);
+            @include border-radius(2px);
+            display:inline-block;
+            border:2px solid $border-color;
+            text-align:center;
+            margin-right:6px;	
+            cursor:pointer;
+            background-color: $white-color;	
+        }
+        i {
+            font-size:$sm-text;
+            opacity:0; 
+        }
+
+    }
+    label:hover div {  
+        background: $white-color; 
+    }
+    input:checked+label i { 
+        opacity:1;     
+        font-size: $xs-text;
+    }
+    input:checked+label div { 
+        @include spacing-color($brand-color,$white-color,2px solid $brand-color);
+        // border:2px solid $brand-color;
+    }
+}
+
+/* Custom Switch */
+.custom-switch {
+    .switch {
+        position: relative;
+        display: inline-block;
+        @include size(50px,24px,null);
+        input {
+            opacity: 0;
+            @include size(0px,0px,null);
+        }
+    }  
+    .slide-ball {
+        @include position(absolute,0px,0px,0px,0px);
+        @include transition(.4s);
+        cursor: pointer;
+        background-color: $white-color;
+        &:before {
+            @include position(absolute,null,null,4px,4px);
+            @include size(17px,17px,null);
+            @include transition(.4s);
+            @include box-shadow(0px,0px,3px,0px,rgba(0,0,0,0.16));
+            border:1px solid $border-color;
+            content: "";
+            background-color: $white-color;
+        }
+        &.round {
+            @include border-radius(34px);
+            &:before {
+                @include border-radius(50%);
+            }
+        }
+    } 
+    input {
+        &:checked {
+            & + .slide-ball {
+                background-color: $brand-color;
+                &:before {
+                    @include transform(translateX(26px));
+                }
+            }
+        }
+        &:focus {
+            & + .slide-ball {
+                box-shadow: 0 0 1px $brand-color;
+            }
+        }
+    } 
+}
+
+/* Custom Dropdown */
+.custom-dropdown {
+    select {
+        outline: none;
+        font-size: $sm-text;
+        option {
+            border: 0px;
+            font-size: $sm-text;
+            font-weight: $bold !important;
+        }
+        &.form-control {
+            @include text($font-family,$sm-text,$dropdown-color,initial,13px,$bold);
+            @include spacing(null,6px 12px,1px solid $border-color);
+            @include border-radius(6px);
+            height: calc(1.9em + .79rem + 3px) !important;
+            &:focus {
+                border: 1px solid $border-color !important;
+            }
+        }
+    }
+    span {
+        @include text($font-family,$md-text,$heading-color,0px 8px 0px 0px,13px,$lighter);
+    }
+}
+
+/* Action Dropdown */
+.action-dropdown {
+    margin-left: auto;
+    button {
+        -webkit-margin-start: auto;
+        margin-inline-start: auto;
+        background-color: transparent;
+        border: 0px;
+    }
+    &.dropleft {
+        .dropdown-menu {
+            @include position(absolute,0px !important,100% !important,null,auto !important);
+            margin-top: 0 !important;
+        }
+    }
+    &.dropright {
+        .dropdown-menu {
+            @include position(absolute,0px !important,auto !important,null,100% !important);
+            margin-top: 0 !important;
+        }
+    }
+    &.dropcenter {
+        .dropdown-menu {
+            @include position(absolute,auto !important,0px !important,null,auto !important);
+            margin-top: 0 !important;
+        }
+    }
+    .dropdown-menu {
+        min-width: auto !important;
+        padding:0px !important;
+        button {
+            padding-right: 0px !important;
+        }
+        .dropdown-item {
+            @include text($font-family,$sm-text,$dropdown-color,0px,14px,$lighter);
+            border-bottom: 1px solid rgba(238, 238, 238, 0.49);
+            cursor: pointer;
+            padding: 6px 16px;
+            text-align: left;
+            &:active {
+                @include spacing-color($brand-color,$white-color,null);
+            }
+            &:hover {
+                @include spacing-color($brand-color,$white-color,null);
+            }
+        }
+    }
+}
+
+/* Custom Dropdown Input Search */
+.dropdown-input-search {
+    @include flex(flex,null,stretch,null);
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
+    button {
+        @include text($font-family,$sm-text,$dropdown-color,0px,13px,$lighter);
+        @include border-radius(6px 0px 0px 6px);
+        @include spacing(0px -1px 0px 0px,0px 2px !important,1px solid $border-color);
+        @include width(30%,94px !important,110px);
+        background-color: $white-color;
+        &.dropdown-toggle {
+            &:after {
+                @include text($icon-family,$sm-text,$brand-secondary-color,0em 0em 0em 1.255em !important,initial,$bold);
+                display: inline-block;
+                content: "\ea69";
+                border: 0px !important;
+                vertical-align: middle !important;
+            }
+        }
+    }
+    .custom-search {
+        width: 70% !important;
+        input {
+           @include border-corner-radius(top,left,bottom,left,0px,0px);
+        //    border-top-left-radius: 0px;
+        //    border-bottom-left-radius: 0px; 
+           border-right: 0px !important; 
+        }
+    } 
+    .dropdown-menu {
+        @include width(30%,auto !important,null);
+        padding: 0px !important;
+        text-align: center;
+        .dropdown-item {
+            @include text($font-family,$sm-text,$dropdown-color,0px,14px,$lighter);
+            cursor: pointer;
+            padding: 4px 16px;
+            text-align: left;
+            &:active {
+                @include spacing-color($brand-color,$white-color,null);
+            }
+            &:hover {
+                @include spacing-color($brand-color,$white-color,null);
+            }
+        }
+    }
+}
+
+/* Custom Dropdown Input */
+.dropdown-input {
+    position: relative;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+    button {
+        @include text($font-family,$sm-text,$dropdown-color,0px,13px,$lighter);
+        @include border-radius(6px 0px 0px 6px);
+        @include spacing(0px -1px 0px 0px,null,1px solid $border-color);
+        @include size(30%,calc(1.5em + .75rem + 5px),null);
+        @include width(null,130px,284px);
+        background-color: $white-color;
+        &.dropdown-toggle {
+            &:after {
+                @include text($icon-family,$sm-text,$brand-secondary-color,0em 0em 0em 1.255em !important,initial,$bold);
+                display: inline-block;
+                // content: "\ea69";
+                
+                content: "\ea03";
+                border: 0px !important;
+                vertical-align: middle !important;
+            }
+        }
+    }
+    .custom-search {
+        width: 70% !important;
+        input {
+            @include border-corner-radius(top,left,bottom,left,0px,0px);
+        //   border-top-left-radius: 0px;
+        //   border-bottom-left-radius: 0px; 
+        //   height: calc(1.5em + .75rem + 2px);
+        height: calc(1.5em + .75rem + 5px);
+          border-right: 1px solid $border-color !important; 
+        }
+    } 
+    .dropdown-menu {
+        &.show {
+            display: block !important;
+        }
+        @include spacing(1px 0px 0px 0px,0px,null);
+        @include width(30%,130px,284px);
+        text-align: center;
+        .dropdown-item {
+            @include text($font-family,$sm-text,$dropdown-color,0px,14px,$lighter);
+            cursor: pointer;
+            padding: 4px 16px;
+            text-align: left;
+            &:active {
+                @include spacing-color($brand-color,$white-color,null);
+            }
+            &:hover {
+                @include spacing-color($brand-color,$white-color,null);
+            }
+        }
+    }
+}
+
+/* Custom Dropdown Version */
+.dropdown-version {
+    position: relative;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+    .version-toggle {
+        cursor: default !important;
+        .cat-down-arrow {
+            display: none;
+        }
+    }
+    button {
+        @include text($font-family,$lg-text,$dropdown-color,0px,13px,$lighter);
+        margin-bottom: 10px;
+        .cat {
+            font-size: 10px;
+            vertical-align: bottom;
+        }
+        &.dropdown-toggle {
+            &:after {
+                @include text($icon-family,$sm-text,$brand-secondary-color,0em 0em 0em 1.255em !important,initial,$bold);
+                display: inline-block;
+                border: 0px !important;
+                vertical-align: middle !important;
+            }
+        }
+    }
+    .dropdown-menu {
+        &.show {
+            display: block !important;
+        }
+        @include border-radius(6px);
+        @include spacing(null,0px !important,none !important);
+        @include width(100%,auto !important,null);
+        .dropdown-item {
+            @include text($font-family,$sm-text,$dropdown-color,0px,14px,$lighter);
+            text-align: left;
+            border-bottom: 1px solid rgba(238, 238, 238, 0.49);
+            cursor: pointer;
+            padding: 4px 16px;
+            text-align: left;
+            &:active {
+                @include spacing-color($brand-color,$white-color,null);
+            }
+            &:hover {
+                @include spacing-color($brand-color,$white-color,null);
+            }
+            &:first-child {
+                &:hover {
+                    @include border-corner-radius(top,left,top,right,6px,6px);
+                    // border-top-left-radius: 6px;
+                    // border-top-right-radius: 6px;
+                }
+            }
+            &:last-child {
+                &:hover {
+                    @include border-corner-radius(bottom,left,bottom,right,6px,6px);
+                    // border-bottom-left-radius: 6px;
+                    // border-bottom-right-radius: 6px;
+                }
+            }
+        }
+    }
+}
+
+/* Custom Modal */
+::ng-deep .modal-dialog {
+    @include flex(flex,center,null,column);
+    @include overflow(hidden,hidden,calc(100vh - 60px),null,100%);
+    padding-top: 0px !important;
+    margin: 0px auto !important;
+    .modal-header { border-bottom: 0px; }
+    .modal-footer {
+        border-top:0px;
+        padding-top: 0px;
+    }
+    &.modal-md {
+        max-width: 600px;
+    }
+    &.modal-box {
+        max-width: 400px;
+    }
+}
+
+/* Custom Modal */
+::ng-deep 
+.custom-modal {
+    @include box-shadow(0px,0px,2px,0px,rgba(0,0,0,0.10));
+    @include border-radius(4px);
+    background-color: $bg-color;
+    .modal-header {
+        border: 0px;
+        padding-bottom:0px;
+        h4 {
+            @include text($font-family,24px,$heading-color,0px,26px,$bold);
+        }
+    }
+    .modal-body {
+        .form-group {
+            label {
+                @include text($font-family,$sm-text,$heading-color,0px,13px,$lighter);
+            }
+            p {
+                @include text($font-family,$sm-text,$heading-color,0px,13px,$lighter);
+                margin-bottom: 5px;
+            }
+            .required {
+                @include text(inherit,12px,$red-color,0px 0px 0px 2px,inherit,$bold);
+            }
+            input {
+                border:1px solid $border-color;
+                @include text($font-family,$sm-text,$text-color,0px,18px,$lighter);
+                &:focus {
+                    border: 1px solid $border-color;
+                }
+            }
+            .form-control {
+                @include text($font-family,$sm-text,$text-color,0px,18px,$lighter);
+                box-shadow: none !important;
+            }
+        }
+        .line-text {
+            @include text($font-family,$md-text,$text-color,0px,18px,$lighter);
+            @include flex(flex,center,center,null);
+            margin: 5px 0px;
+            &::before {
+                background: $placeholder-color;
+                height: 1px;
+                flex: 1;
+                content: '';
+                margin-right: 5px;
+            }
+            &::after {
+                background: $placeholder-color;
+                height: 1px;
+                flex: 10;
+                content: '';
+                margin-left: 5px;
+            }
+        }
+        .error-text {
+            @include text($font-family,$xs-text,$red-color,4px 0px 0px 0px,10px,$lighter);
+            display: block;
+        }
+        .custom-dropdown {
+            .form-control {
+                height: 32px !important;
+            }
+        }
+        .modal-message {
+            @include overflow(null,null,200px,null,200px);
+            @include flex(flex,center,center,null);
+            h5 {
+                @include text($font-family,$xxl-text,$placeholder-color,0px,24px,$lighter);
+            }
+        }
+    }
+    .modal-footer {
+        border: 0px;
+        justify-content: flex-start;
+        .btn {
+            box-shadow: none !important;
+            width: 140px;
+        }
+    }
+    .confirm-content {
+        width: 100%;
+        @include border-radius(4px);
+        @include flex(flex,null,center,null);
+        @include spacing(null,10px,1px solid $placeholder-color);
+        h6 {
+            @include text($font-family,$md-text,$heading-color,0px,18px,$lighter);
+        }
+        .btn {
+            width: 50%;
+            @include border-radius(2px !important);
+        }
+        .col-lg-4 {
+            display: inline-flex !important;
+        }
+    }
+    .input-group {
+        input {
+            border-right: 0px !important;
+            &:focus {
+                border-right: 0px !important;
+            }
+        }
+        .input-group-text {
+            background-color: $white-color;
+            border:1px solid $border-color;
+        }
+    }
+}
+
+
+
+/* Custom Popup */
+::ng-deep .custom-popup {
+    @include border-radius(5px);
+    &.modal-dialog {
+        max-width: 420px;
+    }
+    .modal-content {
+        @include box-shadow(0px,0px,2px,1px,rgba(0,0,0,0.1));
+        background-color: $bg-color;
+    }
+    .modal-header {
+        padding-bottom: 0px;
+    }
+    h4 {
+        @include text($font-family,$lg-text,$heading-color,0px,18px,$bold);
+    } 
+    h6 {
+        @include text($font-family,$md-text,$heading-color,0px,18px,$lighter);
+    }  
+    .close {
+        padding-top: 7px !important;
+        opacity: 1 !important;
+        span {
+            i {
+                @include text($icon-family,$md-text,$heading-color,0px,initial,$bold);
+            }
+        }
+    } 
+    .modal-footer {
+        justify-content: flex-start !important;
+        padding: 1rem;
+        .red-btn {
+            @include text($font-family,$md-text !important,$white-color,0rem .25rem 0rem 0rem,18px,$bold);
+        }
+        .white-btn {
+            @include text($font-family,$md-text !important,$white-color,0px,18px,$bold);
+        }
+    }
+    .modal-body { padding: 0.5rem 1rem !important; }
+}
+
+/* Custom Search Style */
+.custom-search {
+    &.form-group {
+        margin-bottom: 0px;
+        width: 250px;
+    }
+    input {
+        @include text($font-family,$md-text,$text-color,0px,initial,$normal);
+        @include border-radius(6px);
+        height: 40px;
+        &:placeholder-shown {
+            @include input-placeholder($font-family,$sm-text,$placeholder-color,25px !important,$lighter);
+        } 
+    }
+    .btn-group {
+        height: 40px;
+    }
+    .input-group-text {
+        @include border-radius(6px);
+        @include border-corner-radius(bottom,left,top,left,0px,0px);
+        // border-bottom-left-radius: 0px;
+        // border-top-left-radius: 0px;
+        background-color: $white-color !important;
+        border:1px solid $border-color;
+    }
+    .input-group-append {
+        i {
+            color: $brand-color;
+            font-weight: 600;
+        }
+    }
+}
+.input-group>.custom-select:not(:last-child), .input-group>.form-control:not(:last-child) {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius:0px;
+}
+
+.btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+/* List View */
+.list-view {
+    @include border-radius(.25rem);
+    @include spacing(0px,0px,null);
+    @include overflow(null,auto,100px,null,50px);
+    background-color: $white-color;
+    border: 1px solid $border-color;
+    list-style-type: none;
+    &.custom-scroll::-webkit-scrollbar {
+        @include size(6px,5px,null);
+    }
+    li {
+        @include text($font-family,$sm-text,$text-color !important,0px,18px,$lighter !important);
+        align-items: center;
+        .text {
+            @include text($font-family,$sm-text,$text-color !important,0px,18px,$lighter !important);
+            @include text-overflow(220px,null,ellipsis,nowrap,hidden);
+            // position: relative;
+            // &:hover {
+            //     &:after {
+            //         @include position(absolute,auto,null,null,0px);
+            //         //Bk
+            //         @include text($font-family,10px,$text-color,0px,10px,500);
+            //         @include size(auto,auto,null);
+            //         @include spacing(null,5px,1px solid $border-color);
+            //         content:attr(data-title);
+            //         background-color: $table-bg;
+            //         border-radius: 2px;
+            //         z-index: 9999;
+            //     }
+            // }
+        }
+        padding: 6px 5px;
+        display: flex;
+        border: 1px solid rgba(238, 238, 238, 0.38);
+        &:hover {
+            background-color: $table-bg;
+            .remove-item {
+                visibility: visible;
+            }
+        }
+        .remove-item {
+            visibility: hidden;
+            cursor: pointer;
+            margin-left: auto !important;
+            margin-right: 10px;
+            i {
+                vertical-align: middle;
+                color: $text-color;
+            }
+        }
+    }
+}
+
+.badge {
+    padding: .001em .9em !important;
+    margin-left: auto !important;
+    text-transform: uppercase;
+    width: 22px;
+    @include text($font-family,$xxs-text !important,$white-color !important,0px,16px,$lighter);
+}
+
+.locate-badge {
+    background-color: $blue-color;
+} 
+
+.market-badge {
+    background-color: $light-yellow-color;
+}  
+
+/* Warning Icon */
+.current-status {
+    font-size: 15px;
+    // margin-left: 10px;
+    vertical-align: middle;
+    @include status-color();
+}
+
+/* Custom Alert Style */
+.custom-alert {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    background-color: $white-color;
+    @include border-radius(6px);
+    @include box-shadow(0px,0px,4px,1px,$light-black);
+    .close-icon {
+        @include flex(flex,center,center,null);
+        @include text($icon-family,$xs-text,$placeholder-color,0px 0px 0px auto,inherit,$lighter);
+        cursor: pointer;
+    }
+    .text-content {
+        padding: 0px 15px;
+        h6 {
+            @include text($font-family,$sm-text,$black-color,0px,13px,$bold);
+            margin-bottom: 5px;
+        }
+        p {
+            @include text($font-family,$xs-text,$text-color,0px,15px,$lighter);
+        }
+    }
+    &.success-alert {
+        .icon-alert { color: $green-color;
+            &::before { content: "\ea4a"; } }
+    }
+    &.warning-alert  {
+        .icon-alert { color: $yellow-color;
+            &::before { content: "\ea4c"; } }
+    }
+    &.info-alert {
+        .icon-alert { color: $blue-color;
+            &::before { content: "\ea4e"; } }
+    }
+    &.error-alert {
+        .icon-alert { color: $red-color;
+            &::before { content: "\ea0e"; } }
+    }
+    .icon-alert {
+       @include flex(flex,center,center,null);
+       font-size: 20px;
+    }
+    p { margin: 0px; }
+}
+
+.custom-line-alert {
+    position: relative;
+    @include spacing(0px 0px 10px 0px !important,6px 12px,1px solid transparent);
+    @include border-radius(6px);
+    @include text($font-family,$sm-text,inherit,0px,18px,$normal);
+    &.success-alert {
+        color: #155724;
+        background-color: rgba(0, 200, 83, 0.13);
+        border-color: rgba(0, 200, 83, 0.13);
+    }
+    &.warning-alert {
+        color: #721c24;
+        background-color: rgba(232, 107, 107, 0.16);
+        border-color: rgba(232, 107, 107, 0.16);
+    }
+    &.info-alert {
+        color: #004085;
+        background-color: rgba(184, 218, 255, 0.43);
+        border-color: rgba(184, 218, 255, 0.43);
+    }
+}
+
+/* Custom Scroll Bar */
+.custom-scroll {
+    &::-webkit-scrollbar {
+        @include size(10px,5px,null);
+    }
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 2px grey; 
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #cacaca; 
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #cacaca; 
+    }
+}
+
+/* Safari Only Style */
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) { 
+    .custom-search {
+        input {
+            @include text($font-family,$md-text,$text-color,0px,28px,$normal);
+            height: 40px;
+            &:placeholder-shown {
+                @include input-placeholder($font-family,$sm-text,$placeholder-color,25px !important,$lighter);
+            } 
+        }
+    }
+}
+
+.item-name {
+    word-break: break-all;
+    p {
+        margin-bottom: 0px !important;
+        @include text($font-family !important,$sm-text !important,$text-color !important,0px !important,18px,500);
+        background-color: transparent !important;
+        span {
+            @include text($font-family !important,$sm-text !important,$text-color !important,0px !important,18px,500);
+            background-color: transparent !important;
+        }
+    }
+    span {
+        @include text($font-family !important,$sm-text !important,$text-color !important,0px !important,18px,500);
+        background-color: transparent !important;
+    }
+    div {
+        background-color: transparent !important;
+    }
+}
+
+font {
+    @include text($font-family !important,$sm-text !important,$text-color !important,0px !important,18px,500);
+    span {
+        @include text($font-family !important,$sm-text !important,$text-color !important,0px !important,18px,500);
+        i {
+            @include text($font-family !important,$sm-text !important,$text-color !important,0px !important,18px,500);
+        }
+    }
+}
+
+.tool-tips-link {
+    &:hover {
+        .tool-tips {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.tool-tips {
+    @include border-radius(3px);
+    @include spacing-color($brand-color,$white-color !important,null);
+    @include text($font-family,12px !important,null,0px,18px,400);
+    padding: 2px 5px;
+    font-style: normal !important;
+    display: inline-block !important;
+    position: absolute;
+    margin-left: 5px;
+    // margin-top: -7px;
+    // margin-left: 4px;
+    // // right: 0px;
+    opacity: 0;
+    visibility: hidden;
+    // letter-spacing: .5px;
+    z-index: 999999;
+}
+
+.special-item {
+    .menu-block {
+        display: grid;
+        margin-left: 2px;
+    }
+}
+
+
+.custom-modal {
+    &.de-menu-modal {
+        .confirm-content {
+            .col-lg-4 {
+                display: inline-block !important;
+                .btn {
+                    width: 60px;
+                    &.green-btn {
+                        margin-bottom: 10px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* main-menu-table-row */
+.main-menu-table-row {
+    // display: flex;
+    // flex-direction: row;
+    // align-items: stretch;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    .main-menu-table-row__left {
+        // width: 33.3%;
+        padding: 4px 4px;
+
+        &--flag {
+            margin-left: 20px;
+        }
+
+        span + span {
+            margin-left: 8px;
+        }
+    }
+    
+    .main-menu-table-row__right {
+        // width: 66.6%;
+        padding: 4px 12px 4px 8px;
+    }
+}
+
+.menu-price-point--option {
+
+    &:hover {
+        .main-menu-table-row {
+            grid-template-columns: 1fr;
+            .main-menu-table-row__left {
+                display: none;
+            }
+
+            .main-menu-table-row__right {
+                margin-right: 24px;
+            }
+        }
+    }
+}
+  
+  

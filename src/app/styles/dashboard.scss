@@ -1,0 +1,175 @@
+@import 'style.scss';
+
+.dashboard-section {
+    .custom-radiobutton {
+        label {
+            width: 90px !important;
+        }
+    }
+    &.dashboard-pr-section {
+        .custom-radiobutton {
+            label {
+                width: 110px  !important;
+            }
+        }
+        .card-details {
+            padding-left: 15px;
+        }
+    } 
+    .dashboard-card {
+        margin-bottom: 10px;
+        .col-lg-6 {
+            padding: 0px;
+        }
+        .col-lg-4 {
+            &:first-child {
+                @include border(left,1px,solid,$border-color);
+                @include border(right,1px,solid,$border-color);
+            }
+        }
+    }
+    .dashboard-card {
+        @include border-radius(4px);
+        @include box-shadow(0px,0px,4px,1px,rgba(0,0,0,0.20));
+        @include flex(flex,null,center,row);
+        @include padding(10px,null,10px,null);
+        height: 74px;
+        background-color: $white-color;
+        cursor: pointer;
+        .col-lg-6 {
+            @include flex(flex !important,null,null,row);
+        }
+        .col-lg-4 {
+            @include flex(flex !important,left,center,null);
+        }
+        
+        .card-icon {
+            @include flex(flex !important,center,center,null);
+            @include border-corner-radius(top,left,bottom,left,4px,4px);
+            @include spacing(-10px 0px -10px 0px,5px 0px 5px 0px,null);
+            max-width: 76px !important;
+            height: 74px !important;
+            margin: 0px !important;
+            .cat {
+                text-align: center;
+                font-size: 30px;
+                color: $white-color;
+            }
+        }
+        .col-lg-10 {
+            display: flex !important;
+            align-items: center !important;
+        }
+        .card-details {
+            p {
+                @include text($font-family,$sm-text,$brand-secondary-color,0px,18px,$normal);
+            }
+            h4 {
+                @include text($font-family,$md-text,$black-color,0px,18px,$lighter);
+            }
+            h6 {
+                @include text($font-family,$xs-text,$dropdown-color,0px,18px,$lighter);
+            }
+        }
+        .card-date {
+           text-align: left;
+            p {
+                @include text($font-family,$xs-text,$dropdown-color,0px,18px,$normal);
+            }
+            h5 {
+                @include text($font-family,$sm-text,$dropdown-color,0px,18px,$normal);
+            }
+        }
+        &.status-pending {
+            .card-icon {
+                background-color: $light-yellow-color;
+               
+                .cat {
+                    &:before {
+                        // content: "\ea4d";
+                        content: "\ea4e";
+                    }
+                }
+            }
+            .card-label {
+                label {
+                    background-color: $light-yellow-color;
+                }
+            }
+        }
+        &.status-approved {
+            .card-icon {
+                background-color: $green-color;
+                .cat {
+                    &:before {
+                        // content: "\ea48";
+                        content: "\ea49";
+                    }
+                }
+            }
+            .card-label {
+                label {
+                    background-color: $green-color;
+                }
+            }
+        }
+        &.status-rejected {
+            .card-icon {
+                background-color: $red-color;
+                .cat {
+                    &:before {
+                        // content: "\ea53";
+                        content: "\ea4f";
+                    }
+                }
+            }
+            .card-label {
+                label {
+                    background-color: $red-color;
+                }
+            }
+        }
+        &.status-activation {
+            .card-label {
+                label {
+                    background-color: $green-color;
+                }
+            }
+        }
+        &.status-deactivation {
+            .card-label {
+                label {
+                    background-color: $light-yellow-color;
+                }
+            }
+        }
+        &.status-pricepoint {
+            .card-label {
+                label {
+                    background-color: $main-hover-color;
+                }
+            }
+        }
+    }
+    .card-approved {
+        h4 {
+            @include text($font-family,$xs-text,$dropdown-color,0px,18px,$normal);
+        }
+        h5 {
+            @include text($font-family,$sm-text,$dropdown-color,0px,18px,$lighter);
+        }
+        p {
+            @include text($font-family,$xs-text,$dropdown-color,0px,18px,$normal);
+        }
+    }
+    .card-label {
+        @include flex(flex !important,null,center,null);
+        text-align: center;
+        label {
+            @include text($font-family,$sm-text,$white-color,0px,22px,$bold);
+            @include size(100px,22px,null);
+            @include border-radius(6px);
+            vertical-align: middle;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "title" : "Requêtes en attente",
+    "activationRequests" : "Activation Request",
+    "effectiveDate" : "Demande d'activation",
+    "Approved by" : "Approuvé par:",
+    "Approved Date" : " Date confirmée:",
+    "ACTIVATION" : "ACTIVATION",
+    "APPROVED" : "APPROUVÉE",
+    "PRICE POINT" : "POINT DE PRIX",
+    "SayHello" : "Bonjour {{ name }}"
+}
